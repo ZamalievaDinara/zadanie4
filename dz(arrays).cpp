@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 using namespace std;
 
 void fillArray(int* array, const int size, const int step, const int firstElement)
@@ -57,7 +57,7 @@ int main()
 	int N;
 	cout << "Введите колличество элементов массива: ";
 	cin >> N; 
-	int* array1 = new int[N];
+	int* array = new int[N];
 	int step;
 	cout << "Введите шаг арифметической прогрессии: ";
 	cin >> step;
@@ -65,25 +65,28 @@ int main()
 	cout << "Введите первый элемент арифметической прогрессии: ";
 	cin >> firstElement;
 
-	fillArray(array1, N, step, firstElement);
+	fillArray(array, N, step, firstElement);
 	cout << "Арифметическая прогрессия: " << endl;
-	printArray(array1, N);
+	printArray(array, N);
+	delete[] array;
 
 	cout << "Введите колличество элементов массива: ";
 	cin >> N;
-	int* array2 = new int[N];
+	array = new int[N];
 
-	rndFillArray(array2, N);
-	printArray(array2, N);
+	rndFillArray(array, N);
+	printArray(array, N);
+	delete[] array;
+
 	
 	cout << "Введите колличество элементов массива: ";
 	cin >> N;
-	int* array3 = new int[N];
+	array = new int[N];
 
-	rndFillArray3(array3, N);
-	printArray(array3, N);
-	cout << "Колличество элементов, где вторая с конца цифра - четная:" << countElements(array3, N) << endl;
-
+	rndFillArray3(array, N);
+	printArray(array, N);
+	cout << "Колличество элементов, где вторая с конца цифра - четная:" << countElements(array, N) << endl;
+	delete[] array;
 
 	return 0;
 }
